@@ -329,15 +329,16 @@ margin-bottom: 30px;
 	background: transparent;
 }
 .navbar-inverse .navbar-toggle {
-	background-color: #A43E89;
-	background: #38BEE7;  border: 0;
+  background-color: #A43E89;
+	/*background: #38BEE7;  */
+  border: 0;
 }
 .navbar-inverse .navbar-toggle .icon-bar {
-/*background-color: #A43E89;*/
+  background-color: #fff;
 ;
 }
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-	background: #38BEE7;
+	/*background: #38BEE7;*/
 	border: 0;
 }
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
@@ -1212,7 +1213,7 @@ width: 100%;
 
 @media (max-width: 480px) {
 .header{
-background: #38BEE7;
+background: #A43E89;
 }
 .banner-container {
 	background-size: contain;
