@@ -8,8 +8,8 @@ const port = process.env.PORT || 3000;
 const sendgridApiKey = process.env.SENDGRID_API_KEY;
 
 const helper = require('sendgrid').mail;
-const from_email = new helper.Email('rlucas130@gmail.com');
-const to_email = new helper.Email('rlucas130+weddingrsvp@gmail.com');
+const from_email = new helper.Email('rsvp@richardandjill.com');
+const to_email = new helper.Email('jilldaiss+weddingrsvp@gmail.com');
 const subject = 'Wedding RSVP';
 const sg = require('sendgrid')(sendgridApiKey);
 // Serve up index.html
