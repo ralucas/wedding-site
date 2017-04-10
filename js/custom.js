@@ -112,12 +112,18 @@ $('document').ready(function () {
       e.preventDefault();
       var $this = $(this);
       var data = $this.serialize();
-      $.post('/sendmail', data, function(res) {
+      if ( !$this.find('select').val() || 
+         !$this.find('input').val() ) {
         $this.find('.result')
-          .html('<div class="alert alert-success"><strong>Thanks for letting us know!</strong></div>');
-        $this.find('input, textarea, select').val('');
-        $this.find('button#submit').addClass('disabled');
-      });
+          .html('<div class="alert alert-danger"><strong>Please fill in name and rsvp response</strong></div>');
+      } else {
+        $.post('/sendmail', data, function(res) {
+          $this.find('.result')
+            .html('<div class="alert alert-success"><strong>Thanks for letting us know!</strong></div>');
+          $this.find('input, textarea, select').val('');
+          $this.find('button#submit').addClass('disabled');
+        });
+      }
     });
 	
     $('#main-slider').flexslider({

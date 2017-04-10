@@ -26,7 +26,8 @@ function bodyHandler(req, res, next) {
       }, [])
       .reduce((acc, pair) => {
         if ( pair[1] ) {
-          acc[pair[0]] = pair[1];
+          let key = encodeURIComponent(pair[0]);
+          acc[pair[0]] = encodeURIComponent(pair[1]);
         }
         return acc;
       }, {});
@@ -34,7 +35,7 @@ function bodyHandler(req, res, next) {
   function toEmail(str) {
     return str.split('&').map(line => {
       return line.split('=').map(item => {
-        return item.toUpperCase();
+        return encodeURIComponent(item).toUpperCase();
       }).join(" : ");
     }).join("\n");
   }
@@ -56,7 +57,6 @@ router.use(bodyHandler());
 router.use('/', serveIndex);
 
 router.post('/sendmail', (req, res) => {
-  console.log(req.email);
   const content = new helper.Content('text/plain', req.email) 
   const mail = new helper.Mail(from_email, subject, to_email, content);
   const request = sg.emptyRequest({
